@@ -20,13 +20,15 @@ window.onload =  function() {
   // Do all of your work inside the window.onload function (in other words, here!)
 
   // Part 1
-  document.body.getElementsById("main-title").innerHTML = "Welcome to Dom's House!";
+  document.getElementById("main-title").innerHTML = "Welcome to Dom's House!";
 
   // Part 2
   document.querySelector("body").style.backgroundColor = "navy";
   // Part 3
-  let fList = document.body.getElementsById("favorite-things");
-    fList.removeChild(fList.lastChild);
+  const fList = document.getElementById("favorite-things");
+  let text = fList.children[5]
+   // console.log(text);
+   fList.removeChild(text);
   // Part 4
   let resize = document.querySelectorAll(".special-title");
   for(i=0; i<resize.length; i++){
@@ -34,27 +36,37 @@ window.onload =  function() {
   }
   // Part 5
   let races = document.getElementById("past-races");
-  races.removeChild(races.children[3]);
+  //console.log(races)
+  let target = races.children[3]
+  //console.log(target)
+  races.removeChild(target);
   // Part 6
   const newRace = document.createElement("li");
-  let location = document.createTextNode("Philadelphia");
-
-  newRace.append(location);
+  //console.log(newRace)
+  newRace.innerText = "Philadelphia"
+  //console.log(newRace)
   races.appendChild(newRace);
   // Part 7
   const newBlog = document.createElement("div");
-  newBlog.classList.add(".blog-post", "purple");
+  newBlog.classList.add("blog-post", "purple");
+  
+  //console.log(newBlog)
 
   const header = document.createElement("h1");
-  const hText = document.createTextNode("Philadelphia")
-  header.appendChild(hText);
+  header.innerText = `Philadelphia`
+  
+ //console.log(header)
 
   const para = document.createElement("p");
-  const pText = document.createTextNode("I RAN UP AND DOWN THE BOULEVARD!");
-  para.appendChild(pText);
+  para.innerText = "I RAN UP AND DOWN THE BOULEVARD!"
 
+  //console.log(para)
+ 
   newBlog.append(header);
   newBlog.append(para);
 
-  document.getElementsByClassName("main").appendChild(newBlog);
+  //console.log(newBlog)
+
+  let updatedBlog = document.querySelectorAll(".main")
+  updatedBlog[0].appendChild(newBlog)
 }
